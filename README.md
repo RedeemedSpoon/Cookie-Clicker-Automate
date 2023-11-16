@@ -62,10 +62,15 @@ Follow these steps to set up the Cookie Clicker Automation:
   If you ever want to transfer your game to another browser or play it alone without automation, follow these additional steps:
   
   **Get Game Progress:**
+  
   In the program directory 'Cookie-Clicker-Automate', open save.txt and copy the whole text in it.
+  
   **Import to Your Browser:**
+  
   On your browser, open cookie clicker website, navigate to the option tab, locate the import button, and paste the previous text. This will load your game into the browser.
+  
   **Update save.txt:**
+  
   Copy the new game's export text from the export button in the option tab and overwrite the content in the save.txt file. This ensures that the automation script has the latest game state.
 
 ## Important Note
