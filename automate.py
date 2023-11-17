@@ -136,7 +136,7 @@ class CookieClickerBot:
                 self.golden_cookie_event()
                 self.second_timer = 0
                 self.minute_timer += 1
-                if self.minute_timer >= 30:
+                if self.minute_timer >= 5:
                     self.minute_timer = 0
                     self.hour_timer += 1
                     self.purchase_buildings()
