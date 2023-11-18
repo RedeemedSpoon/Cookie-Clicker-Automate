@@ -69,11 +69,19 @@ class CookieClickerBot:
                 golden_cookie.click()
             except:
                 pass
-
+                
     def buy_upgrade(self):
         try:
-            self.upgrades = self.browser.find_element(By.ID, "upgrade0")
-            self.upgrade_id = self.upgrades.get_attribute("data-id")
+            self.parent_id = None
+            num = 0
+            while self.parent_id not in ["techUpgrades", "upgrades"]:
+                if num > 10:
+                    break 
+                self.upgrades = self.browser.find_element(By.ID, f"upgrade{num}")
+                self.upgrade_id = self.upgrades.get_attribute("data-id")
+                self.parent = self.upgrades.find_element(By.XPATH, '..')
+                self.parent_id = self.parent.get_attribute("id")
+                num += 1
 
             if self.upgrade_id == "69":
                 self.upgrades.click()
