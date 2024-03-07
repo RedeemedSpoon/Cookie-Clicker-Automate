@@ -50,7 +50,8 @@ Follow these steps to set up the Cookie Clicker Automation:
    ```bash
     pip install selenium
     git clone https://github.com/RedeemedSpoon/Cookie-Clicker-Automate.git
-    cd Cookie-Clicker-Automate/
+    cd Cookie-Clicker-Automate
+   ```
 
 ## How to Use
 1. **Configure Settings:**
