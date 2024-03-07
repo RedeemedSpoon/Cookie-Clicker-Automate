@@ -37,13 +37,10 @@ The `automate.py` script performs the following actions:
 
 - **Progress Tracking:** Save your progress to the 'save.txt' file for future use.
 
-## Dependencies
-Ensure you have the following dependencies installed:
-
-- Python 3
-- Pip
-
 ## Installation
+
+Make sure first you have installed first Python and Pip
+
 Follow these steps to set up the Cookie Clicker Automation:
 
 
