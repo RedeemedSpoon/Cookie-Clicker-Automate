@@ -41,14 +41,16 @@ The `automate.py` script performs the following actions:
 Ensure you have the following dependencies installed:
 
 - Python 3
-- Selenium WebDriver
+- Pip
 
 ## Installation
 Follow these steps to set up the Cookie Clicker Automation:
 
-1. **Clone the Repository:**
+
    ```bash
+    pip install selenium
     git clone https://github.com/RedeemedSpoon/Cookie-Clicker-Automate.git
+    cd Cookie-Clicker-Automate/
 
 ## How to Use
 1. **Configure Settings:**
@@ -56,7 +58,7 @@ Follow these steps to set up the Cookie Clicker Automation:
 
 2. **Run the Automation Script:**
    ```bash
-   python3 ~/Cookie-Clicker-Automate/automate.py
+   python3 automate.py
 
   ### Manual Interaction:
   If you ever want to transfer your game to another browser or play it alone without automation, follow these additional steps:

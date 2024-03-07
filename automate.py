@@ -7,14 +7,13 @@ from setting import *
 class CookieClickerBot:
     def __init__(self):
         self.get_browser()
-        self.browser.get("https://orteil.dashnet.org/cookieclicker/")
-        sleep(2)
+        self.browser.get("https://orteil.dashnet.org/cookieclicker/"); sleep(2)
         self.initialize_elements()
 
     def initialize_elements(self):
         self.lang = self.browser.find_element(By.ID, "langSelect-EN")
-        self.lang.click()
-        sleep(1)
+        self.lang.click(); sleep(1)
+        
         self.giant_cookie = self.browser.find_element(By.ID, "bigCookie")
         self.option_btn = self.browser.find_element(By.ID, "prefsButton")
         self.buildings = self.browser.find_element(By.ID, "products")
@@ -30,7 +29,7 @@ class CookieClickerBot:
             self.browser = webdriver.Chrome()
         elif browser.capitalize() == "Edge":
             self.browser = webdriver.Edge()
-        else:
+        elif browser.capitalize() == "Safari":
             self.browser = webdriver.Safari()
 
     def start(self):
@@ -38,42 +37,30 @@ class CookieClickerBot:
             with open("./save.txt", "r") as file:
                 save_data = file.read()
                 self.option_btn.click()
-                self.import_btn = self.browser.find_element(
-                    By.CSS_SELECTOR, "div.listing:nth-child(4) > a:nth-child(2)"
-                )
-                self.import_btn.click()
-                self.prompt = self.browser.find_element(By.ID, "textareaPrompt")
-                self.prompt.send_keys(save_data)
-                self.agree = self.browser.find_element(By.ID, "promptOption0")
-                self.agree.click()
-                self.option_btn.click()
-                sleep(3)
+                self.browser.find_element(By.CSS_SELECTOR, "div.listing:nth-child(4) > a:nth-child(2)").click()
+                self.browser.find_element(By.ID, "textareaPrompt").send_keys(save_data)
+                self.browser.find_element(By.ID, "promptOption0").click()
+                self.option_btn.click(); sleep(3)
         except:
             pass
 
     def save(self):
         self.option_btn.click()
-        self.export_btn = self.browser.find_element(By.CSS_SELECTOR, "div.listing:nth-child(4) > a:nth-child(1)")
-        self.export_btn.click()
+        self.export_btn = self.browser.find_element(By.CSS_SELECTOR, "div.listing:nth-child(4) > a:nth-child(1)").click()
         with open("./save.txt", "w") as file:
             self.prompt = self.browser.find_element(By.ID, "textareaPrompt").text
             file.write(self.prompt)
-            self.agree = self.browser.find_element(By.ID, "promptOption0")
-            self.agree.click()
+            self.agree = self.browser.find_element(By.ID, "promptOption0").click()
             self.option_btn.click()
 
     def golden_cookie_event(self):
         if get_golden_warth_cookie:
-            try:
-                golden_cookie = self.browser.find_element(By.CSS_SELECTOR, ".shimmer")
-                golden_cookie.click()
-            except:
-                pass
+            try: golden_cookie = self.browser.find_element(By.CSS_SELECTOR, ".shimmer").click()
+            except: pass
                 
     def buy_upgrade(self):
         try:
-            self.parent_id = None
-            num = 0
+            self.parent_id = None; num = 0
             while self.parent_id not in ["techUpgrades", "upgrades"]:
                 if num > 10:
                     break 
@@ -85,16 +72,11 @@ class CookieClickerBot:
 
             if self.upgrade_id == "69":
                 self.upgrades.click()
-                self.btn = self.browser.find_element(By.ID, "promptOption0")
-                self.btn.click()
+                self.btn = self.browser.find_element(By.ID, "promptOption0").click()
             elif self.upgrade_id == "74" and not end_grandmapocalypse:
-                self.upgrades = self.browser.find_element(By.ID, "upgrade2")
-                self.upgrades.click()
-            elif (self.upgrade_id == "85" and end_grandmapocalypse) or (
-                self.upgrade_id == "74" and end_grandmapocalypse
-            ):
-                self.upgrades = self.browser.find_element(By.ID, "upgrade1")
-                self.upgrades.click()
+                self.upgrades = self.browser.find_element(By.ID, "upgrade2").click()
+            elif (self.upgrade_id == "85" and end_grandmapocalypse) or (self.upgrade_id == "74" and end_grandmapocalypse):
+                self.upgrades = self.browser.find_element(By.ID, "upgrade1").click()
             else:
                 self.upgrades.click()
         except:
@@ -102,17 +84,12 @@ class CookieClickerBot:
 
     def purchase_buildings(self):
         for building in range(20, -1, -1):
-            try:
-                latest_building = self.buildings.find_element(By.ID, f"product{building}")
-                latest_building.click()
-            except:
-                pass
+            try: latest_building = self.buildings.find_element(By.ID, f"product{building}").click()
+            except: pass
 
     def autoclick(self):
-        try:
-            self.giant_cookie.click()
-        except:
-            pass
+        try: self.giant_cookie.click()
+        except: pass
         
     def wizz_buff(self):
         try:
@@ -129,11 +106,8 @@ class CookieClickerBot:
 
     def collect_sugar_lumps(self):
         if get_sugar_lump_early:
-            try:
-                self.lumps = self.browser.find_element(By.ID, "lumps")
-                self.lumps.click()
-            except:
-                pass
+            try: self.lumps = self.browser.find_element(By.ID, "lumps").click()
+            except: pass
 
     def run(self):
         while True:
